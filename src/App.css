@@ -49,7 +49,7 @@ body {
     font-weight: 700;
     padding: 2px 10px;
     cursor: pointer;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     border: 2px solid var(--primaryColor);
     border-radius: 8px;
 }
@@ -71,9 +71,9 @@ body {
     color: var(--primaryColor);
     text-decoration: none;
     font-size: 1.2rem;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
 }
 
 .navbar a:hover {
@@ -91,7 +91,7 @@ body {
     background: var(--highlightColor);
     transform: scale(0);
     transform-origin: right;
-    transition: transform .3s ease, background-color .3s ease .3s;
+    transition: transform 0.3s ease, background-color 0.3s ease 0.3s;
 }
 
 .navbar a:hover::before {
@@ -110,6 +110,7 @@ section {
 }
 
 .left {
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -117,25 +118,31 @@ section {
 
 .title {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .name {
+    position: relative;
     color: var(--highlightBg);
-    font-size: 2.5rem;
-    font-weight: 500;
-    text-wrap: nowrap;
+    font-size: 4rem;
+    font-weight: 800;
+    white-space: nowrap;
+    -webkit-text-stroke: 1px var(--highlightBg);
+    cursor: pointer;
+    transition: transform 5s ease;
 }
 
-@keyframes cursor {
-    50% {
-        border-color: transparent;
-    }
+.name::before {
+    content: 'BHUVAN CHANDU';
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    height: 100%;
+    color: var(--primaryBg);
 }
 
-.right img {
-    width: 500px;
-    border-radius: 250px;
+.name:hover::before {
+    z-index: -1;
 }
 
 .sub-title {
@@ -145,51 +152,80 @@ section {
 }
 
 .static-txt {
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
-.dynamic-txts {
-    height: 3rem;
-    overflow: hidden;
-}
-
-.dynamic-txts li {
-    list-style: none;
+.dynamic-txt {
     color: var(--highlightColor);
-    position: relative;
-    top: 0;
-    line-height: 3rem;
-    height: 3rem;
     font-weight: 500;
-    animation: slideUp 5s steps(2) infinite;
+    text-wrap: nowrap;
+    cursor: pointer;
+}
+
+#home .about {
+    text-align: justify;
+}
+
+#home .contacts {
+    display: flex;
+    gap: 2rem;
+}
+
+.btn {
+    position: relative;
+    padding: .5rem .5rem;
+    font-size: 1.5rem;
+    color: var(--highlightColor);
+    border: 2px solid var(--highlightColor);
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
     overflow: hidden;
 }
 
-@keyframes slideUp {
-    100% {
-        top: -6rem;
-    }
-}
-
-.dynamic-txts li span {
-    position: relative;
-    margin-right: 2px;
-}
-
-.dynamic-txts li span::after {
+.btn::before {
     content: '';
     position: absolute;
+    top: 0;
     left: 0;
+    width: 0;
     height: 100%;
-    width: 100%;
-    background: var(--primaryBg);
-    border-left: 2px solid var(--highlightColor);
-    animation: typing 2.5s steps(20) infinite;
+    background: var(--highlightColor);
+    transition: width .5s ease;
+    z-index: -1;
 }
 
-@keyframes typing {
-    100% {
-        left: 100%;
-        margin: 0 -1rem 0 1rem;
-    }
+#home .contacts a:hover {
+    color: var(--primaryColor);
+}
+
+#home .contacts a:hover::before {
+    width: 100%;
+}
+
+#home .contacts .btn a,
+#home .contacts .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#home .contacts .btn a {
+    padding: 0 10px;
+    font-size: 1rem;
+    border: none;
+}
+
+
+
+.right img {
+    width: 500px;
+    border-radius: 250px;
 }
