@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 :root {
-    --primaryBg: #343f4f;
+    --primaryBg: #2b323c;
+    /* --primaryBg: #343f4f; */
     --highlightColor: #ff6464;
     --secondaryBg: #282c34;
     --highlightBg: #0080cf;
@@ -99,7 +100,7 @@ body {
 }
 
 section {
-    height: calc(100vh - 44px);
+    height: calc(100vh - 56px);
 }
 
 #home {

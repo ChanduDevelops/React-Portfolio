@@ -1,5 +1,6 @@
 const Header = () => {
   const links = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+
   return (
     <header id='header'>
       <nav className='navbar'>
