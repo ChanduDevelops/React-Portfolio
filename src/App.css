@@ -125,26 +125,31 @@ section {
 
 .name {
     position: relative;
-    color: var(--highlightBg);
+    color: var(--primaryBg);
     font-size: 4rem;
     font-weight: 800;
     white-space: nowrap;
     -webkit-text-stroke: 1px var(--highlightBg);
     cursor: pointer;
-    transition: transform 5s ease;
+    transition: transform 5s cubic-bezier(.8, .4, .8, 1);
 }
 
 .name::before {
     content: attr(data-name);
     position: absolute;
-    bottom: 3px;
     left: 0;
+    width: 0;
     height: 100%;
-    color: var(--primaryBg);
+    color: var(--highlightBg);
+    border-right: 2px solid var(--highlightBg);
+    padding-right: 2px;
+    overflow: hidden;
+    transition: width 1s ease, filter .5s ease;
 }
 
 .name:hover::before {
-    z-index: -1;
+    width: 100%;
+    filter: drop-shadow(0 0 20px var(--highlightBg));
 }
 
 .sub-title {
@@ -176,13 +181,15 @@ section {
 #home .contacts .btn {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: .5rem;
-    padding: .25rem .5rem;
+    width: 2.7rem;
+    height: 2.7rem;
     border: 2px solid var(--highlightColor);
-    border-radius: 20px;
+    border-radius: 999px;
     cursor: pointer;
+    transition: width .5s ease, border .5s ease;
     overflow: hidden;
 }
 
@@ -194,13 +201,17 @@ section {
     width: 0;
     height: 100%;
     background: var(--highlightColor);
-    transition: width .5s ease;
+    transition: width .5s ease, transform .5s ease, border .5s ease;
     z-index: -1;
 }
 
 #home .contacts .btn:hover::before {
     width: 100%;
     z-index: -1;
+}
+
+#home .contacts .btn:hover {
+    width: 25%;
 }
 
 #home .contacts .btn:hover a,
@@ -211,17 +222,46 @@ section {
 #home .contacts .btn a {
     color: var(--highlightColor);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: .5rem;
     cursor: pointer;
+    transition: width .5s ease;
 }
 
 #home .contacts .btn a .icon {
     color: var(--highlightColor);
+    font-size: 1.2rem;
 }
 
-.right img {
+
+.right {
+    position: relative;
+}
+
+.right div {
+    background: var(--highlightBg);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    position: relative;
     width: 500px;
-    border-radius: 250px;
+    aspect-ratio: 1/1;
+    animation: swing 3s forwards infinite;
+}
+
+.right .portfolio-image {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes swing {
+
+    from,
+    to {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
 }

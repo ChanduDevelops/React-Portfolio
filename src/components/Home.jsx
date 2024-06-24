@@ -1,17 +1,18 @@
-import PortfolioImage from '../assets/images/portfolio image.jpeg';
+import PortfolioImage from '../assets/images/portfolio_image_nobg.png';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { IoDocumentText } from 'react-icons/io5'
 import { MdMail } from 'react-icons/md';
 import { useReducer } from 'react';
 
 const Home = () => {
   const [subtitleWord] = useTypewriter({
-    words: ['Software Engineer', 'FullStack Developer', 'Coder', 'Designer'],
+    words: ['Software Engineer.', 'FullStack Developer.', 'Coder.', 'Designer.'],
     loop: true,
   });
 
   const visibilityIntialStates = {
-    resumeBtnVisible: true,
+    resumeBtnVisible: false,
     linkedinBtnVisible: false,
     gitHubBtnVisible: false,
     mailBtnVisible: false,
@@ -27,10 +28,12 @@ const Home = () => {
       case 'HIDE_LINKEDIN': return { ...state, linkedinBtnVisible: false };
       case 'HIDE_GITHUB': return { ...state, gitHubBtnVisible: false };
       case 'HIDE_MAIL': return { ...state, mailBtnVisible: false };
+      default: return state;
     }
   }
   const [state, dispatch] = useReducer(visibilityReducer, visibilityIntialStates);
   const name = 'BHUVAN CHANDU';
+
   return (
     <section id='home'>
       <div className='left'>
@@ -53,10 +56,11 @@ const Home = () => {
         </div>
 
         <div className='contacts'>
-          <div className='cv btn'
-            onMouseOver={() => { dispatch({ type: 'HIDE_RESUME' }) }} onMouseOut={() => { dispatch({ type: 'SHOW_RESUME' }) }}>
+          <div className='btn cv'
+            onMouseOver={() => { dispatch({ type: 'SHOW_RESUME' }) }} onMouseOut={() => { dispatch({ type: 'HIDE_RESUME' }) }}>
             <a href='https://drive.google.com/uc?export=download&id=1hzs1McJNHUVIjWepVaOTmvEKEjb5WDTm' >
-              <FaDownload className='icon' /> Resume
+              {state.resumeBtnVisible ?
+                <><FaDownload className='icon' /><span>Resume</span></> : <IoDocumentText className='icon' />}
             </a>
           </div>
           <div className='linkedin btn'
@@ -64,7 +68,7 @@ const Home = () => {
             onMouseOut={() => { dispatch({ type: 'HIDE_LINKEDIN' }) }}>
             <a href='https://www.linkedin.com/in/chandu-cs/' target='_blank'>
               <FaLinkedinIn className='icon' />
-              {state.linkedinBtnVisible ? <span>LinkedIn</span> : ''}
+              {state.linkedinBtnVisible ? <span>LinkedIn</span> : null}
             </a>
           </div>
           <div className='github btn'
@@ -85,7 +89,8 @@ const Home = () => {
 
       </div>
       <div className='right'>
-        <img
+        <div></div>
+        <img className='portfolio-image'
           src={PortfolioImage}
           alt='My_image'
         />
