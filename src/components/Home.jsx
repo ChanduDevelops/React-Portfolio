@@ -1,30 +1,42 @@
 import PortfolioImage from '../assets/images/portfolio image.jpeg';
-import Resume from '../assets/files/BHUVAN_CHANDU_2024.pdf'
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdMail } from 'react-icons/md';
-import { IoDocumentText } from 'react-icons/io5';
-import { useState } from 'react';
+import { useReducer } from 'react';
 
 const Home = () => {
   const [subtitleWord] = useTypewriter({
     words: ['Software Engineer', 'FullStack Developer', 'Coder', 'Designer'],
     loop: true,
   });
-  const [btnVisible, setBtnVisible] = useState(false);
 
-  const toggleButtonVisibility = () => {
-    setBtnVisible(true);
-  };
+  const visibilityIntialStates = {
+    resumeBtnVisible: true,
+    linkedinBtnVisible: false,
+    gitHubBtnVisible: false,
+    mailBtnVisible: false,
+  }
+  const visibilityReducer = (state, action) => {
+    switch (action.type) {
+      case 'SHOW_RESUME': return { ...state, resumeBtnVisible: true };
+      case 'SHOW_LINKEDIN': return { ...state, linkedinBtnVisible: true };
+      case 'SHOW_GITHUB': return { ...state, gitHubBtnVisible: true };
+      case 'SHOW_MAIL': return { ...state, mailBtnVisible: true };
 
-  const hideButtonVisibility = () => {
-    setBtnVisible(false);
-  };
+      case 'HIDE_RESUME': return { ...state, resumeBtnVisible: false };
+      case 'HIDE_LINKEDIN': return { ...state, linkedinBtnVisible: false };
+      case 'HIDE_GITHUB': return { ...state, gitHubBtnVisible: false };
+      case 'HIDE_MAIL': return { ...state, mailBtnVisible: false };
+    }
+  }
+  const [state, dispatch] = useReducer(visibilityReducer, visibilityIntialStates);
+  const name = 'BHUVAN CHANDU';
   return (
     <section id='home'>
       <div className='left'>
         <div className='title'>
-          Hello, I&apos;m <br /><span className='name'>BHUVAN CHANDU</span>
+          Hello, I&apos;m <br />
+          <span className='name' data-name={name}>{name}</span>
         </div>
 
         <div className='sub-title'>
@@ -41,21 +53,34 @@ const Home = () => {
         </div>
 
         <div className='contacts'>
-          <div className='cv btn' onMouseOver={toggleButtonVisibility} onMouseOut={hideButtonVisibility}>
-            {
-              btnVisible ?
-                <a href={Resume} download className='btn'><FaDownload /> Resume</a> : <IoDocumentText />
-            }
+          <div className='cv btn'
+            onMouseOver={() => { dispatch({ type: 'HIDE_RESUME' }) }} onMouseOut={() => { dispatch({ type: 'SHOW_RESUME' }) }}>
+            <a href='https://drive.google.com/uc?export=download&id=1hzs1McJNHUVIjWepVaOTmvEKEjb5WDTm' >
+              <FaDownload className='icon' /> Resume
+            </a>
           </div>
-          <a className='linkedin btn' href='https://www.linkedin.com/in/chandu-cs/' target='_blank'>
-            <FaLinkedin />
-          </a>
-          <a className='github btn' href='https://github.com/ChanduDevelops' target='_blank'>
-            <FaGithub />
-          </a>
-          <a className='mail btn' href='mailto:bhuvanchandumidde3@gmail.com'>
-            <MdMail />
-          </a>
+          <div className='linkedin btn'
+            onMouseOver={() => { dispatch({ type: 'SHOW_LINKEDIN' }) }}
+            onMouseOut={() => { dispatch({ type: 'HIDE_LINKEDIN' }) }}>
+            <a href='https://www.linkedin.com/in/chandu-cs/' target='_blank'>
+              <FaLinkedinIn className='icon' />
+              {state.linkedinBtnVisible ? <span>LinkedIn</span> : ''}
+            </a>
+          </div>
+          <div className='github btn'
+            onMouseOver={() => { dispatch({ type: 'SHOW_GITHUB' }) }} onMouseOut={() => { dispatch({ type: 'HIDE_GITHUB' }) }}>
+            <a href='https://github.com/ChanduDevelops' target='_blank'>
+              <FaGithub className='icon' />
+              {state.gitHubBtnVisible ? <span>GitHub</span> : ''}
+            </a>
+          </div>
+          <div className='mail btn'
+            onMouseOver={() => { dispatch({ type: 'SHOW_MAIL' }) }} onMouseOut={() => { dispatch({ type: 'HIDE_MAIL' }) }}>
+            <a href='mailto:bhuvanchandumidde3@gmail.com'>
+              <MdMail className='icon' />
+              {state.mailBtnVisible ? <span>Mail</span> : ''}
+            </a>
+          </div>
         </div>
 
       </div>
