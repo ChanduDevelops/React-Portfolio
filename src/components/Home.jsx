@@ -89,7 +89,7 @@ const Home = () => {
             onMouseOut={() => {
               dispatch({ type: 'HIDE_RESUME' });
             }}>
-            <a href='https://drive.google.com/uc?export=download&id=1hzs1McJNHUVIjWepVaOTmvEKEjb5WDTm'>
+            <a href='https://drive.google.com/uc?export=download&id=1qmwBCNbCirlc-seWCTYG1BIEURadX_Fd'>
               {state.resumeBtnVisible ? (
                 <>
                   <FaDownload className='icon' />
