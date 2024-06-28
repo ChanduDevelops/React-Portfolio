@@ -1,11 +1,5 @@
 const About = () => {
-  return (
-    <section
-      id='about'
-      style={{ height: '100vh' }}>
-      About
-    </section>
-  );
+  return <section id='about'>About</section>;
 };
 
 export default About;

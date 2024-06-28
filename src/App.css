@@ -22,6 +22,7 @@
 body {
     color: var(--primaryColor);
     background: var(--primaryBg);
+    scroll-snap-type: y mandatory;
 }
 
 .app {
@@ -201,7 +202,9 @@ section {
     width: 0;
     height: 100%;
     background: var(--highlightColor);
-    transition: width .5s ease, transform .5s ease, border .5s ease;
+    transition:
+        width .5s ease,
+        border .5s ease;
     z-index: -1;
 }
 
@@ -211,7 +214,7 @@ section {
 }
 
 #home .contacts .btn:hover {
-    width: 25%;
+    width: 22.5%;
 }
 
 #home .contacts .btn:hover a,
@@ -233,7 +236,6 @@ section {
     color: var(--highlightColor);
     font-size: 1.2rem;
 }
-
 
 .right {
     position: relative;
