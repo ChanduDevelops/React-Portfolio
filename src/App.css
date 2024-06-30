@@ -304,7 +304,16 @@ section {
 
 .img-c img {
     width: 320px;
+    border-radius: 999px;
+    transition:
+        border-radius .5s ease-in-out,
+        transform .5s ease-in-out;
+    cursor: pointer;
+}
+
+.img-c img:hover {
     border-radius: 20px;
+    transform: scale(1.2);
 }
 
 #about .content {
