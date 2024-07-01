@@ -1,4 +1,4 @@
-import aboutImage from '../assets/images/latest image.jpg';
+import aboutImage from '../assets/images/latest_image.png';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 export default function About() {
@@ -27,11 +27,14 @@ export default function About() {
             to a dynamic software development team.
           </p>
           <div className='education'>
-            <span className='line'></span>
+            <span className='line'>
+              <span className='dot'></span>
+              <span className='dot'></span>
+              <span className='dot'></span>
+            </span>
 
             <ul>
               <li className='ed-content'>
-                <span className='dot'></span>
                 <div className='content'>
                   <div className='year'>
                     <FaCalendarAlt />
@@ -45,7 +48,6 @@ export default function About() {
               </li>
 
               <li className='ed-content'>
-                <span className='dot'></span>
                 <div className='content'>
                   <div className='year'>
                     <FaCalendarAlt />
@@ -59,7 +61,6 @@ export default function About() {
               </li>
 
               <li className='ed-content'>
-                <span className='dot'></span>
                 <div className='content'>
                   <div className='year'>
                     <FaCalendarAlt />

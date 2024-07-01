@@ -23,7 +23,7 @@
 }
 
 html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-padding-top: var(--hdr-height);
     scroll-behavior: smooth;
 }
@@ -338,6 +338,26 @@ section {
     background: var(--highlightColor);
 }
 
+.education .dot {
+    position: absolute;
+    top: 2rem;
+    left: -6px;
+    display: block;
+    width: 15px;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    background: var(--highlightColor);
+    cursor: pointer;
+}
+
+.education .dot:nth-child(1) {
+    top: 8rem;
+}
+
+.education .dot:nth-child(2) {
+    top: 14rem;
+}
+
 .education .education-box {
     position: relative;
     margin-left: 2rem;
@@ -350,6 +370,8 @@ section {
     border-radius: 10px;
     margin-bottom: 1rem;
     padding: 10px 15px;
+    z-index: 10;
+    overflow: hidden;
 }
 
 .ed-content::before {
@@ -359,27 +381,18 @@ section {
     left: 0;
     width: 0;
     height: 100%;
-    transition: width 1s ease;
     background: var(--secondaryBg);
     border-radius: 10px;
     z-index: -1;
+    /* transform: scale(0); */
+    transform-origin: left top;
+    transition: width 1s ease;
     overflow: hidden;
 }
 
 .ed-content:hover::before {
+    /* transform: scale(1); */
     width: 100%;
-}
-
-.ed-content .dot {
-    position: absolute;
-    top: 1.5rem;
-    left: -2.5rem;
-    display: block;
-    width: 15px;
-    aspect-ratio: 1/1;
-    border-radius: 10px;
-    background: var(--highlightColor);
-    cursor: pointer;
 }
 
 .ed-content .year {
@@ -392,4 +405,46 @@ section {
 
 .ed-details {
     white-space: nowrap;
+}
+
+#skills .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#skills h1 {
+    font-size: 3rem;
+}
+
+#skills h1 span {
+    color: var(--highlightBg);
+}
+
+#skills ul {
+    width: 65%;
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+    grid-template-rows: repeat(auto-fit, minmax(100px, 300px));
+}
+
+#skills .skill {
+    border-radius: 10px;
+    display: inline-block;
+    place-self: center;
+}
+
+#skills ul .mongodb {
+    grid-area: 2/2/2/4;
+}
+
+#skills ul .mongodb img {
+    width: 150px;
+}
+
+.skill img {
+    width: 100px;
+    border-radius: 10px;
 }
