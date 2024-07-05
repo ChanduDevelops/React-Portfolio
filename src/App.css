@@ -79,7 +79,7 @@ body {
     align-items: center;
 }
 
-.navbar a {
+.navbar .link {
     position: relative;
     color: var(--primaryColor);
     text-decoration: none;
@@ -89,11 +89,11 @@ body {
     letter-spacing: 0.5px;
 }
 
-.navbar a:hover {
+.navbar .link:hover {
     color: var(--highlightColor);
 }
 
-.navbar a::before {
+.navbar .link::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -107,9 +107,26 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease 0.3s;
 }
 
-.navbar a:hover::before {
+.navbar .link:hover::before {
     transform: scale(1);
     transform-origin: left;
+}
+
+.navbar .link.active {
+    position: relative;
+    color: var(--highlightColor);
+}
+
+.navbar .link.active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--highlightColor);
+    transform: scale(1);
 }
 
 section {
@@ -117,6 +134,8 @@ section {
     scroll-snap-align: start;
 }
 
+
+/* home section */
 #home {
     display: flex;
     justify-content: space-evenly;
@@ -303,8 +322,8 @@ section {
     width: 320px;
     border-radius: 999px;
     transition:
-        border-radius .5s ease-in-out,
-        transform .5s ease-in-out;
+        border-radius .5s ease,
+        transform .5s ease;
     cursor: pointer;
 }
 
@@ -426,13 +445,19 @@ section {
     gap: 2rem;
 }
 
+#skills .container .left {
+    position: relative;
+    width: 30%;
+}
+
 #skills h1 {
     font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 #skills h1 .line1 {
     display: block;
-    text-align: center;
 }
 
 
@@ -444,43 +469,69 @@ section {
     color: var(--highlightColor);
 }
 
+.skill-title {
+    position: absolute;
+    width: 100%;
+    bottom: -4.5rem;
+    left: 0;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 3.5rem;
+    font-family: 'Orbitron';
+    opacity: 0;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+    transform: translateY(-50px);
+}
+
+.skill-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .seperator {
     display: inline;
     width: 5px;
     min-height: calc(var(--sec-height) - 10rem);
     background: var(--highlightColor);
+    /* margin-left: 3rem; */
 }
 
 #skills .skill-list {
-    min-width: 50%;
-    max-width: 70%;
     min-height: 80vh;
     max-height: var(--sec-height);
     margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(4, minmax(12rem, .5fr));
     align-items: center;
     justify-items: center;
+}
+
+.skill-list li .skill-icon {
+    width: 100%;
+    transform: scale(1.2);
+}
+
+.skill-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
     border-radius: 50%;
-    /* animation: spinAround .1s infinite; */
-}
-
-.skill-list .skill {
     cursor: pointer;
-    transition:
-        filter 0.3s ease,
-        transform .3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.skill-list:has(.skill:hover) .skill {
+.skill-list:has(li:hover) li {
     filter: grayscale(1);
 }
 
-.skill-list:has(.skill:hover) .skill:hover {
-    filter: grayscale(0) drop-shadow(1px 1px 5px rgba(255, 255, 255, 0.5));
+.skill-list:has(li:hover) li:hover {
+    filter: grayscale(0) brightness(1.5);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6), transparent);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
     transform: scale(1.5);
 }
-
-
 
 /* animate line 1, 2 out of ul one by one  */
