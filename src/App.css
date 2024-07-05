@@ -31,14 +31,11 @@ html {
 body {
     color: var(--primaryColor);
     background: var(--primaryBg);
-    scroll-snap-type: y mandatory;
 }
 
 .app {
     display: flex;
     flex-direction: column;
-
-    scroll-snap-type: y mandatory;
 }
 
 
@@ -116,7 +113,7 @@ body {
 }
 
 section {
-    height: var(--sec-height);
+    min-height: var(--sec-height);
     scroll-snap-align: start;
 }
 
@@ -296,7 +293,7 @@ section {
 
 #about .container {
     position: relative;
-    top: 2rem;
+    top: 1rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -313,11 +310,12 @@ section {
 
 .img-c img:hover {
     border-radius: 20px;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 #about .content {
     width: 53%;
+    line-height: 1.6;
 }
 
 #about .about-txt {
@@ -351,11 +349,21 @@ section {
 }
 
 .education .dot:nth-child(1) {
-    top: 8rem;
+    top: 8.7rem;
 }
 
 .education .dot:nth-child(2) {
-    top: 14rem;
+    top: 15.5rem;
+}
+
+.education .dot::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    width: 3.75rem;
+    height: 3px;
+    background: var(--highlightColor);
 }
 
 .education .education-box {
@@ -364,14 +372,14 @@ section {
 }
 
 .ed-content {
-    left: 2rem;
+    left: 4rem;
     position: relative;
     border: 2px solid var(--highlightColor);
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding: 10px 15px;
-    z-index: 10;
     overflow: hidden;
+    transition: transform .5s ease;
 }
 
 .ed-content::before {
@@ -383,16 +391,17 @@ section {
     height: 100%;
     background: var(--secondaryBg);
     border-radius: 10px;
+    transition: width .5s ease;
     z-index: -1;
-    /* transform: scale(0); */
-    transform-origin: left top;
-    transition: width 1s ease;
     overflow: hidden;
 }
 
 .ed-content:hover::before {
-    /* transform: scale(1); */
     width: 100%;
+}
+
+.ed-content:hover {
+    transform: translateX(-150px);
 }
 
 .ed-content .year {
@@ -407,7 +416,10 @@ section {
     white-space: nowrap;
 }
 
+
+/* Skill section  */
 #skills .container {
+    max-height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -418,33 +430,57 @@ section {
     font-size: 3rem;
 }
 
-#skills h1 span {
+#skills h1 .line1 {
+    display: block;
+    text-align: center;
+}
+
+
+#skills h1 .line2 span {
     color: var(--highlightBg);
 }
 
-#skills ul {
-    width: 65%;
-    border: 2px solid red;
+#skills h1 .line2 span:nth-child(2) {
+    color: var(--highlightColor);
+}
+
+.seperator {
+    display: inline;
+    width: 5px;
+    min-height: calc(var(--sec-height) - 10rem);
+    background: var(--highlightColor);
+}
+
+#skills .skill-list {
+    min-width: 50%;
+    max-width: 70%;
+    min-height: 80vh;
+    max-height: var(--sec-height);
+    margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
-    grid-template-rows: repeat(auto-fit, minmax(100px, 300px));
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    align-items: center;
+    justify-items: center;
+    border-radius: 50%;
+    /* animation: spinAround .1s infinite; */
 }
 
-#skills .skill {
-    border-radius: 10px;
-    display: inline-block;
-    place-self: center;
+.skill-list .skill {
+    cursor: pointer;
+    transition:
+        filter 0.3s ease,
+        transform .3s ease;
 }
 
-#skills ul .mongodb {
-    grid-area: 2/2/2/4;
+.skill-list:has(.skill:hover) .skill {
+    filter: grayscale(1);
 }
 
-#skills ul .mongodb img {
-    width: 150px;
+.skill-list:has(.skill:hover) .skill:hover {
+    filter: grayscale(0) drop-shadow(1px 1px 5px rgba(255, 255, 255, 0.5));
+    transform: scale(1.5);
 }
 
-.skill img {
-    width: 100px;
-    border-radius: 10px;
-}
+
+
+/* animate line 1, 2 out of ul one by one  */

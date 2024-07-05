@@ -8,7 +8,7 @@ const Header = () => {
         <ul>
           {links.map((link, index) => (
             <li key={index}>
-              <a href={`#${link}`}>{link}</a>
+              <a href={`#${link.toLowerCase()}`}>{link}</a>
             </li>
           ))}
         </ul>

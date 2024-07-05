@@ -1,38 +1,37 @@
-import logos from './logos';
+import StackIcon from 'tech-stack-icons';
 
-const Skills = () => {
+export default function Skills() {
   const skills = [
-    'Python',
-    'JavaScript',
-    'Java',
-    'SQL',
-    'MongoDB',
-    'HTML',
-    'CSS',
-    'React',
-    'TailwindCSS',
-    'NodeJS',
-    'ExpressJS',
-    'Git',
-    'GitHub',
+    'python',
+    'js',
+    'java',
+    'mysql',
+    'mongodb',
+    'html5',
+    'css3',
+    'reactjs',
+    'tailwindcss',
+    'nodejs',
+    'git',
+    'github',
   ];
+
   return (
-    <section
-      id='skills'
-      style={{ height: '100vh' }}>
+    <section id='skills'>
       <div className='container'>
         <h1>
-          Me & My <br />
-          <span>Tech</span> Stack
+          <span className='line1'>My</span>
+          <span className='line2'>
+            <span>Tech</span> <span>Stack</span>
+          </span>
         </h1>
-        <ul>
-          {skills.map((skill, index) => (
-            <li
-              key={index}
-              className={`skill ${skill.toLowerCase()}`}>
-              <img
-                src={logos[skill]}
-                alt=''
+        <span className='seperator'></span>
+        <ul className='skill-list'>
+          {skills.map((skill) => (
+            <li key={skill}>
+              <StackIcon
+                name={skill}
+                className='skill'
               />
             </li>
           ))}
@@ -40,6 +39,4 @@ const Skills = () => {
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
