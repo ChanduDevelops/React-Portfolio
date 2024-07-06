@@ -23,7 +23,7 @@
 }
 
 html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     scroll-padding-top: var(--hdr-height);
     scroll-behavior: smooth;
 }
