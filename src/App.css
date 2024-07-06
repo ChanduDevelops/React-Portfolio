@@ -285,7 +285,7 @@ section {
     width: 380px;
     z-index: 2;
     top: 1rem;
-    left: 3.5rem;
+    left: 3.2rem;
 }
 
 @keyframes swing {
@@ -362,7 +362,7 @@ section {
 
 .education .dot {
     position: absolute;
-    top: 2.5rem;
+    top: 2.3rem;
     left: -6px;
     display: block;
     width: 15px;
@@ -373,11 +373,11 @@ section {
 }
 
 .education .dot:nth-child(1) {
-    top: 10rem;
+    top: 9rem;
 }
 
 .education .dot:nth-child(2) {
-    top: 17.5rem;
+    top: 16rem;
 }
 
 .education .dot::before {
@@ -459,7 +459,7 @@ section {
 #skills h1 {
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 #skills h1 .line1 {
@@ -484,11 +484,26 @@ section {
     white-space: nowrap;
     font-size: 3.5rem;
     font-family: 'Orbitron';
+    font-weight: 800;
+    -webkit-text-stroke: 1px var(--highlightBg);
     opacity: 0;
     transition:
         opacity 0.5s ease,
         transform 0.5s ease;
-    transform: translateY(-50px);
+    transform: translatex(4rem);
+    z-index: 1;
+}
+
+.skill-title::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    clip-path: polygon(100% 0, 60% 70%, 40% 60%, 0 100%, 40% 30%, 60% 40%);
+    background: linear-gradient(to right, var(--highlightColor), transparent, var(--highlightBg));
+    z-index: -1;
 }
 
 .skill-title.visible {
@@ -501,7 +516,6 @@ section {
     width: 5px;
     min-height: calc(var(--sec-height) - 10rem);
     background: var(--highlightColor);
-    /* margin-left: 3rem; */
 }
 
 #skills .skill-list {
