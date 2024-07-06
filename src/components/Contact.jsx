@@ -1,11 +1,5 @@
 const Contact = () => {
-  return (
-    <section
-      id='contact'
-      style={{ height: '100vh' }}>
-      Contact
-    </section>
-  );
+  return <section id='contact'>Contact</section>;
 };
 
 export default Contact;

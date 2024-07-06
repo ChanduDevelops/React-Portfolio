@@ -1,4 +1,4 @@
-import aboutImage from '../assets/images/latest_image.png';
+import aboutImage from '../assets/images/sinchan2_nobg.png';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 export default function About() {

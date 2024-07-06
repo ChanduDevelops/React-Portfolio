@@ -281,9 +281,11 @@ section {
 }
 
 .right .portfolio-image {
-    z-index: 2;
     position: absolute;
-    top: 0;
+    width: 380px;
+    z-index: 2;
+    top: 1rem;
+    left: 3.5rem;
 }
 
 @keyframes swing {
@@ -320,6 +322,8 @@ section {
 
 .img-c img {
     width: 320px;
+    aspect-ratio: 3/4;
+    background: var(--primaryColor);
     border-radius: 999px;
     transition:
         border-radius .5s ease,
@@ -333,8 +337,9 @@ section {
 }
 
 #about .content {
-    width: 53%;
-    line-height: 1.6;
+    position: relative;
+    width: 55%;
+    line-height: 1.7;
 }
 
 #about .about-txt {
@@ -357,7 +362,7 @@ section {
 
 .education .dot {
     position: absolute;
-    top: 2rem;
+    top: 2.5rem;
     left: -6px;
     display: block;
     width: 15px;
@@ -368,11 +373,11 @@ section {
 }
 
 .education .dot:nth-child(1) {
-    top: 8.7rem;
+    top: 10rem;
 }
 
 .education .dot:nth-child(2) {
-    top: 15.5rem;
+    top: 17.5rem;
 }
 
 .education .dot::before {
@@ -380,7 +385,7 @@ section {
     position: absolute;
     top: 6px;
     left: 10px;
-    width: 3.75rem;
+    width: 4rem;
     height: 3px;
     background: var(--highlightColor);
 }
@@ -393,6 +398,7 @@ section {
 .ed-content {
     left: 4rem;
     position: relative;
+    background: var(--primaryBg);
     border: 2px solid var(--highlightColor);
     border-radius: 10px;
     margin-bottom: 1.5rem;
@@ -420,7 +426,7 @@ section {
 }
 
 .ed-content:hover {
-    transform: translateX(-150px);
+    transform: translateX(-8rem);
 }
 
 .ed-content .year {

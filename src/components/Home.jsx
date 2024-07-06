@@ -1,4 +1,4 @@
-import PortfolioImage from '../assets/images/portfolio_image_nobg.png';
+import PortfolioImage from '../assets/images/sinchan0_nobg.png';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { FaDownload, FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { IoDocumentText } from 'react-icons/io5';
