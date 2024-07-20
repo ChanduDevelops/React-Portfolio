@@ -147,11 +147,13 @@ const Home = () => {
       </div>
       <div className='right'>
         <div></div>
-        <img
-          className='portfolio-image'
-          src={PortfolioImage}
-          alt='My_image'
-        />
+        <div className='img-wrapper'>
+          <img
+            className='portfolio-image'
+            src={PortfolioImage}
+            alt='My_image'
+          />
+        </div>
       </div>
     </section>
   );
