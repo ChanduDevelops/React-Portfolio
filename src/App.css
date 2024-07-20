@@ -23,7 +23,7 @@
 }
 
 html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-padding-top: var(--hdr-height);
     scroll-behavior: smooth;
 }
@@ -271,7 +271,7 @@ section {
     position: relative;
 }
 
-#home .right div {
+#home .right div:first-child {
     background: var(--highlightBg);
     clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
     position: relative;
@@ -280,9 +280,40 @@ section {
     animation: swing 3s forwards infinite;
 }
 
+#home .right .img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 4%;
+    left: 46%;
+    width: 120px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    filter: drop-shadow(0 0 5px white);
+    border-radius: 50%;
+    transform: rotate(10deg);
+    z-index: 3;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .right .portfolio-image {
     position: absolute;
     width: 380px;
+    filter: brightness(1.001);
     z-index: 2;
     top: 1rem;
     left: 3.2rem;
@@ -323,7 +354,7 @@ section {
 .img-c img {
     width: 320px;
     aspect-ratio: 3/4;
-    background: var(--primaryColor);
+    background: linear-gradient(60deg, var(--highlightBg), var(--highlightColor));
     border-radius: 999px;
     transition:
         border-radius .5s ease,
@@ -333,7 +364,7 @@ section {
 
 .img-c img:hover {
     border-radius: 20px;
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 #about .content {
