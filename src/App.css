@@ -487,7 +487,7 @@ section {
 
 #skills .container .left {
     position: relative;
-    width: 30%;
+    width: 35%;
 }
 
 #skills .container .left>div {
@@ -616,3 +616,128 @@ section {
 }
 
 /* animate line 1, 2 out of ul one by one  */
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact .container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    /* border: 2px solid var(--highlightBg); */
+}
+
+#contact .container h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#contact .container h1 span {
+    color: var(--highlightColor);
+}
+
+#contact .container form .form-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+    grid-template-rows: repeat(2, 25px);
+    gap: 1rem;
+    row-gap: 2rem;
+}
+
+#contact .container form textarea {
+    resize: none;
+    width: 100%;
+    height: 250px;
+    margin-top: 1rem;
+}
+
+#contact .container form input {
+    width: 100%;
+    height: 40px;
+}
+
+form :is(input, textarea) {
+    text-transform: lowercase;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    padding: 10px;
+    background: transparent;
+    color: var(--primaryColor);
+    border: 2px solid var(--highlightBg);
+}
+
+form input[type='text'] {
+    text-transform: capitalize;
+}
+
+form :is(input, textarea):focus {
+    outline: var(--highlightBg);
+    background: rgb(0, 128, 207, .1);
+    box-shadow: 0 0 15px 2px var(--highlightBg);
+}
+
+form :is(input, textarea)::placeholder {
+    font-size: 1.2rem;
+    color: var(--primaryColor);
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+form button {
+    position: relative;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: transparent;
+    color: var(--primaryColor);
+    border-radius: 50px;
+    border: 2px solid var(--highlightColor);
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--highlightColor);
+    z-index: -1;
+}
+
+form button:active {
+    transform: scale(.9);
+}
+
+form .form-result {
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+
+form .form-result .icon {
+    color: var(--highlightColor);
+}
