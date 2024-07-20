@@ -5,6 +5,7 @@ export default function Skills() {
   const [skillText, setSkillText] = useState('');
   const [titleVisible, setTitleVisible] = useState(false);
 
+
   const skills = {
     python: 'Python',
     js: 'JavaScript',
@@ -24,15 +25,20 @@ export default function Skills() {
     <section id='skills'>
       <div className='container'>
         <div className='left'>
-          <h1>
-            <span className='line1'>My</span>
-            <span className='line2'>
-              <span>Tech</span> <span>Stack</span>
+          <div>
+            <div className="loader">
+              <div></div>
+            </div>
+            <h1 className='line1'>My</h1>
+            <span className='skill-title'>
+              <h1 className='line2'>
+                {titleVisible ?
+                  skillText :
+                  'Tech Stack'
+                }
+              </h1>
             </span>
-          </h1>
-          <h2 className={`skill-title ${titleVisible ? 'visible' : ''}`}>
-            {skillText}
-          </h2>
+          </div>
         </div>
 
         <span className='seperator'></span>

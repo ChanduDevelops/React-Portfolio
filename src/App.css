@@ -57,19 +57,19 @@ body {
 
 #logo {
     font-family: 'Orbitron', 'Lucida Sans', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     letter-spacing: 1px;
     font-weight: 700;
     padding: 2px 10px;
     cursor: pointer;
     letter-spacing: 0.5px;
-    border: 2px solid var(--primaryColor);
     border-radius: 8px;
 }
 
 #logo:hover {
-    color: var(--highlightBg);
-    border: 2px solid var(--highlightBg);
+    background: linear-gradient(to right, var(--highlightColor), var(--highlightBg));
+    background-clip: text;
+    color: transparent;
 }
 
 .navbar ul {
@@ -171,7 +171,9 @@ section {
     left: 0;
     width: 0;
     height: 100%;
-    color: var(--highlightBg);
+    background: linear-gradient(90deg, var(--highlightColor), var(--highlightBg));
+    background-clip: text;
+    color: transparent;
     border-right: 2px solid var(--highlightBg);
     padding-right: 2px;
     overflow: hidden;
@@ -180,6 +182,7 @@ section {
 
 .name:hover::before {
     width: 100%;
+    -webkit-text-stroke-color: transparent;
     filter: drop-shadow(0 0 20px var(--highlightBg));
 }
 
@@ -475,7 +478,7 @@ section {
 
 /* Skill section  */
 #skills .container {
-    max-height: inherit;
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -487,59 +490,86 @@ section {
     width: 30%;
 }
 
-#skills h1 {
+#skills .container .left>div {
+    position: relative;
     font-size: 3rem;
-    text-align: center;
-    margin-bottom: 5rem;
-}
-
-#skills h1 .line1 {
-    display: block;
-}
-
-
-#skills h1 .line2 span {
-    color: var(--highlightBg);
-}
-
-#skills h1 .line2 span:nth-child(2) {
-    color: var(--highlightColor);
-}
-
-.skill-title {
-    position: absolute;
-    width: 100%;
-    bottom: -4.5rem;
-    left: 0;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     white-space: nowrap;
-    font-size: 3.5rem;
-    font-family: 'Orbitron';
-    font-weight: 800;
-    -webkit-text-stroke: 1px var(--highlightBg);
-    opacity: 0;
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-    transform: translatex(4rem);
-    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1/1;
 }
 
-.skill-title::before {
+#skills .container .left>div .loader {
+    position: absolute;
+    top: 20%;
+    width: 70%;
+    aspect-ratio: 1/1;
+    background: conic-gradient(var(--highlightBg), transparent 180deg);
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotateBackward 4s linear infinite;
+}
+
+#skills .container .left>div .loader::before {
     content: '';
     position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 300%;
-    clip-path: polygon(100% 0, 60% 70%, 40% 60%, 0 100%, 40% 30%, 60% 40%);
-    background: linear-gradient(to right, var(--highlightColor), transparent, var(--highlightBg));
-    z-index: -1;
+    background: var(--primaryBg);
+    border-radius: 50%;
+    z-index: 0;
+    inset: 1.5rem;
 }
 
-.skill-title.visible {
-    opacity: 1;
-    transform: translateY(0);
+#skills .container .left>div .loader div {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    aspect-ratio: 1/1;
+    background: conic-gradient(transparent 180deg, var(--highlightColor));
+    border-radius: 50%;
+    z-index: 2;
+    animation: rotateForward 2s linear infinite;
+}
+
+#skills .container .left>div .loader div::before {
+    content: '';
+    position: absolute;
+    background: var(--primaryBg);
+    border-radius: 50%;
+    z-index: 0;
+    inset: 1.5rem;
+}
+
+@keyframes rotateBackward {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotateForward {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#skills .container .left>div .line1 {
+    font-weight: 700;
+}
+
+#skills .container .left div .line2 {
+    color: var(--primaryColor);
+    font-family: 'Orbitron';
 }
 
 .seperator {

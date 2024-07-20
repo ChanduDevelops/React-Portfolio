@@ -30,11 +30,11 @@ const Header = () => {
   return (
     <header id='header'>
       <nav className='navbar'>
-        <p
+        <h1
           id='logo'
           onClick={() => scroll.scrollToTop()}>
           CHANDU
-        </p>
+        </h1>
         <ul>
           {links.map((link, index) => (
             <li key={index}>
@@ -42,9 +42,8 @@ const Header = () => {
                 to={link.toLowerCase()}
                 smooth={true}
                 duration={500}
-                className={`link ${
-                  activeLink === link.toLowerCase() ? 'active' : ''
-                }`}>
+                className={`link ${activeLink === link.toLowerCase() ? 'active' : ''
+                  }`}>
                 {link}
               </Link>
             </li>
