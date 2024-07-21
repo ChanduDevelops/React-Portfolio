@@ -147,7 +147,7 @@ const Home = () => {
       </div>
       <div className='right'>
         <div></div>
-        <div className='img-wrapperring '>
+        <div className='img-wrapper'>
           <img
             className='portfolio-image'
             src={PortfolioImage}
