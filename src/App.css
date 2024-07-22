@@ -129,6 +129,43 @@ body {
     transform: scale(1);
 }
 
+.move-top {
+    position: absolute;
+    top: calc(var(--sec-height));
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--highlightColor);
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.move-top::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 150%;
+    background: conic-gradient(var(--highlightColor), transparent 120deg);
+    z-index: -1;
+    animation: rotateBackward 2s linear infinite;
+}
+
+.move-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(.9);
+    background: var(--primaryBg);
+    border-radius: 50px;
+    z-index: -1;
+}
+
 section {
     min-height: var(--sec-height);
     scroll-snap-align: start;
@@ -297,20 +334,6 @@ section {
     border-radius: 50%;
     transform: rotate(10deg);
     z-index: 3;
-}
-
-@keyframes ringRotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(180deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 .right .portfolio-image {
