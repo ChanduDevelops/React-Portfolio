@@ -28,12 +28,12 @@ const Header = () => {
             </li>
           ))}
         </ul>
-
       </nav>
+
       <Link to="home" smooth={true} duration={500}>
-        <a href="#home" className='move-top' >
+        <span href="#home" className='move-top' title='Scroll Top'>
           <GrLinkTop />
-        </a>
+        </span>
       </Link>
     </header>
   );
