@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
-const Project = ({ id, project }) => {
+const Project = ({ id }) => {
     return (
-        <section id={id} className='project' onClick={() => { console.log(project); }}>
-            {project}
+        <section id={id} className='project' >
+            {id}
         </section>
     )
 }

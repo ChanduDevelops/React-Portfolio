@@ -56,6 +56,7 @@ body {
 }
 
 #logo {
+    color: var(--primaryColor);
     font-family: 'Orbitron', 'Lucida Sans', sans-serif;
     font-size: 1.6rem;
     letter-spacing: 1px;
@@ -794,8 +795,8 @@ form .form-result .icon {
 
 .project-tabs {
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: calc(var(--sec-height) / 2);
+    left: .5rem;
     transform: translateY(-50%);
     z-index: 2;
     display: flex;
@@ -805,10 +806,12 @@ form .form-result .icon {
 
 .project-tabs a {
     color: var(--primaryColor);
+    font-size: 1.2rem;
     cursor: pointer;
     aspect-ratio: 1/2;
     padding: 1rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
     border-radius: 10px 0 0 10px;
     display: flex;
     justify-content: center;
@@ -816,9 +819,31 @@ form .form-result .icon {
 }
 
 .project-tabs a.active {
+    position: relative;
     border: 2px solid var(--highlightColor);
     border-right: none;
-    box-shadow: -5 -5 10px 0 var(--highlightColor);
+}
+
+.project-tabs a.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(100% - 2px);
+    width: 5px;
+    height: 100%;
+    background: var(--primaryBg);
+}
+
+.project-tabs a.active span {
+    position: absolute;
+    width: 35px;
+    aspect-ratio: 1/1;
+    background: var(--highlightColor);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .project-list {
@@ -830,7 +855,20 @@ form .form-result .icon {
 }
 
 .project-list li {
+    width: 100%;
     height: var(--sec-height);
-    flex: 0 0 100vw;
+    display: none;
     scroll-snap-align: start;
+}
+
+.project-list li.active {
+    display: block;
+    position: relative;
+    margin-left: 3.3rem;
+}
+
+.project-list .project {
+    width: 100%;
+    border: 2px solid var(--highlightColor);
+    border-radius: 10px;
 }

@@ -22,19 +22,17 @@ const Header = () => {
                 duration={500}
                 spy={true}
                 offset={-70}
-                className={`link`}>
+                className='link'>
                 {link}
               </Link>
             </li>
           ))}
         </ul>
-      </nav>
 
-      <Link to="home" smooth={true} duration={500}>
-        <span href="#home" className='move-top' title='Scroll Top'>
-          <GrLinkTop />
-        </span>
-      </Link>
+      </nav>
+      <a href="#home" className='move-top' title='Scroll Top'>
+        <GrLinkTop />
+      </a>
     </header>
   );
 };
