@@ -678,7 +678,8 @@ section {
     padding: 5px 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: filter 0.3s ease,
+        transform 0.3s ease;
 }
 
 .skill-list:has(li:hover) li {
@@ -692,9 +693,8 @@ section {
     transform: scale(1.4);
 }
 
-.skill-list li.grayscale {
-    visibility: hidden;
-    opacity: 0;
+.skill-list li.category-skills {
+    display: none;
 }
 
 

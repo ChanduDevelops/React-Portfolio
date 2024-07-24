@@ -90,7 +90,7 @@ const Skills = () => {
           {Object.entries(skills).map(([key, value]) => (
             <li
               key={key}
-              className={`${activeSkillType && !Object.keys(groupedSkills[activeSkillType] || {}).includes(key) ? 'grayscale' : ''}`}
+              className={`${activeSkillType && !Object.keys(groupedSkills[activeSkillType] || {}).includes(key) ? 'category-skills' : ''}`}
               onMouseOver={() => {
                 setSkillText(value);
                 setTitleVisible(true);
