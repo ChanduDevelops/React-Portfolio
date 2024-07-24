@@ -48,25 +48,28 @@ const Skills = () => {
     }
   };
 
+
   return (
     <section id='skills'>
       <div className='container'>
         <ul className="skill-tabs">
-          {console.log(Object.keys(groupedSkills))}
-          {Object.keys(groupedSkills).map((category) => (
-            <li
-              key={category}
-              className={`${activeSkillType === category ?
-                'active' : ''}`}
-              onMouseOver={() => {
-                setActiveSkillType(category);
-              }}
-              onMouseOut={() => {
-                setActiveSkillType('');
-              }}>
-              {category.charAt(0).toUpperCase() + category.substring(1)}
-            </li>
-          ))}
+          <li className={`${!activeSkillType ? 'active' : ''}`}
+            onClick={() => {
+              setActiveSkillType('');
+            }}>All</li>
+          {Object.keys(groupedSkills).map((category) => {
+            return (
+              <li
+                key={category}
+                className={`${activeSkillType === category ?
+                  'active' : ''}`}
+                onClick={() => {
+                  setActiveSkillType(category);
+                }}>
+                {category.charAt(0).toUpperCase() + category.substring(1)}
+              </li>
+            )
+          })}
         </ul>
         <div className='left'>
           <div>
