@@ -521,10 +521,45 @@ section {
 
 /* Skill section  */
 #skills .container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    padding-top: 2rem;
+}
+
+#skills .skill-tabs {
+    position: absolute;
+    top: 1rem;
+    left: 55%;
+    display: flex;
+    gap: 1rem;
+}
+
+#skills .skill-tabs li {
+    position: relative;
+    border: 2px solid var(--highlightColor);
+    padding: 5px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#skills .skill-tabs li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--highlightColor);
+    z-index: -1;
+    transition: width .5s ease;
+}
+
+#skills .skill-tabs li:hover::before {
+    width: 100%;
 }
 
 #skills .container .left {
@@ -633,7 +668,7 @@ section {
 
 .skill-list li .skill-icon {
     width: 100%;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .skill-list li {
@@ -654,7 +689,12 @@ section {
     filter: grayscale(0) brightness(1.5);
     /* background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5), transparent);
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); */
-    transform: scale(1.5);
+    transform: scale(1.4);
+}
+
+.skill-list li.grayscale {
+    visibility: hidden;
+    opacity: 0;
 }
 
 
