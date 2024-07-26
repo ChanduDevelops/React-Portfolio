@@ -1,14 +1,13 @@
 import Project from './Projects/Project'
+import myProjects from './Projects/projectsData';
 import { useState } from 'react';
 
 
 const Projects = () => {
-  const projects = ['QuizGuru', 'React Portfolio', 'Weather Website', 'Image BgRemover', 'My Portfolio'];
-  const navMenu = [...Array(projects.length).keys()].map(i => i + 1);
+  const navMenu = myProjects.map(project => project.index);
 
   const [activeTab, setActiveTab] = useState(1);
-  const [activeProject, setActiveProject] = useState('quizguru');
-
+  const [activeProject, setActiveProject] = useState(myProjects[0].id);
   return (
     <section id='projects'>
       <div className="wrapper">
@@ -16,11 +15,11 @@ const Projects = () => {
           navMenu.map(ind => {
             return (
               <li key={ind}>
-                <a href={`#${activeProject.split(' ').join('')}`}
+                <a href={`#${activeProject}`}
                   className={`tab ${activeTab === ind ? 'active' : ''}`}
                   onClick={() => {
                     setActiveTab(ind);
-                    setActiveProject(projects[ind - 1].toLowerCase())
+                    setActiveProject(myProjects[ind - 1].id)
                   }}>
                   <span className="top-hc"></span>
                   <span className='circle'></span>
@@ -31,12 +30,19 @@ const Projects = () => {
           })}
         </ol>
         <ul className="project-list">
-          {projects.map((project, index) => {
-            let id = project.split(' ').join('').toLowerCase();
+          {myProjects.map(project => {
             return (
-              <li key={index}
-                className={`${activeProject === project.toLowerCase() ? 'active' : ''}`}>
-                <Project id={id} counter={index + 1} projectTitle={project} />
+              <li key={project.id}
+                className={`${activeProject === project.id ? 'active' : ''}`}>
+                <Project
+                  index={project.index}
+                  id={project.id}
+                  title={project.title}
+                  info={project.info}
+                  tech={project.tech}
+                  image={project.image}
+                  liveLink={project.liveLink}
+                  sourceLink={project.sourceLink} />
               </li>
             )
           })}
