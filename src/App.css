@@ -838,8 +838,13 @@ section {
     border-radius: 10px;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 4rem;
+}
+
+.reverse-flex {
+    flex-direction: row-reverse;
 }
 
 .project .container .counter {
@@ -854,7 +859,7 @@ section {
 .project .container .left {
     position: relative;
     top: 1rem;
-    width: 45%;
+    width: 44%;
 }
 
 .project .container p {
@@ -915,18 +920,34 @@ section {
     white-space: nowrap;
     position: relative;
     color: var(--primaryColor);
-    border: 2px solid var(--primaryColor);
     display: inline-flex;
     align-items: center;
+    justify-content: space-around;
     gap: .7rem;
-    width: 10.5rem;
+    width: 12rem;
     border-radius: 10px;
     padding: 5px 10px;
+    margin-right: 2rem;
 }
 
 .project .container a:hover {
+    color: var(--highlightBg);
     border-color: transparent;
     box-shadow: 0 0 10px var(--highlightBg);
+}
+
+.project .container a span {
+    display: flex;
+    align-items: center;
+}
+
+.project .container a span:first-of-type {
+    font-size: 1.2rem;
+    color: var(--highlightBg);
+}
+
+.project .container a:hover span:first-of-type {
+    color: var(--primaryColor);
 }
 
 .project .container .right {
@@ -962,10 +983,10 @@ section {
 .project .container .title::before {
     content: '';
     position: absolute;
-    top: -3px;
-    left: -3px;
-    width: calc(100% + 6px);
-    height: calc(100% + 6px);
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     border-radius: 15px;
     background: conic-gradient(from var(--a), #00dbde, #fc00ff, red, #ff3333, var(--highlightColor), #4646ff, blue, #00dbde);
     animation: rotateColor 6s linear infinite;
@@ -975,10 +996,10 @@ section {
 .project .container .title::after {
     content: '';
     position: absolute;
-    top: -5px;
-    left: -5px;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
     border-radius: 10px;
     background: conic-gradient(from var(--a), #00dbde, #fc00ff, red, #ff3333, var(--highlightColor), #4646ff, blue, #00dbde);
     filter: blur(5px);
@@ -1004,11 +1025,12 @@ section {
 
 .project .container .img-c {
     position: relative;
-    width: 40rem;
+    width: 38rem;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 15px var(--highlightBg);
 }
 
 .project .container .img-c img {

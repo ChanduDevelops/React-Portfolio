@@ -1,3 +1,9 @@
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
+
+/* VITE_PORT=4040 
+
+VITE_CONTACT_URL=https: //api.web3forms.com/submit
+
+VITE_CONTACT_API_KEY=eb171812-667b-4399-9e7a-fe968ecece3d */

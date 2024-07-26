@@ -2,12 +2,13 @@ import PropTypes from 'prop-types'
 import StackIcon from 'tech-stack-icons'
 import { SiExpress } from 'react-icons/si'
 import { FaLink } from "react-icons/fa";
+import { MdDoubleArrow } from "react-icons/md";
 
 
-const Project = ({ index, id, title, info, tech, image, liveLink }) => {
+const Project = ({ index, id, title, info, tech, image, liveLink, sourceLink }) => {
     return (
         <section id={id} className='project'>
-            <div className="container">
+            <div className={`container ${index % 2 === 0 ? 'reverse-flex' : ''}`}>
                 <h1 className='counter'>{`0${index}`}</h1>
 
                 <div className='left'>
@@ -28,9 +29,21 @@ const Project = ({ index, id, title, info, tech, image, liveLink }) => {
                             })}
                         </ul>
                     </div>
-                    <a href={liveLink} target="_blank">
-                        Project live link <FaLink />
-                    </a>
+                    <div className='code-links'>
+                        <a href={liveLink} target="_blank">
+                            <span>
+                                <MdDoubleArrow />
+                            </span> Project live link <span>
+                                <FaLink />
+                            </span>
+                        </a>
+                        <a href={sourceLink} target="_blank">
+                            <span>
+                                <MdDoubleArrow />
+                            </span> Source link <span>
+                                <FaLink />
+                            </span></a>
+                    </div>
                 </div>
                 <div className='right'>
                     <h1 className="title">
@@ -53,7 +66,8 @@ Project.propTypes = {
     info: PropTypes.string,
     tech: PropTypes.array,
     image: PropTypes.string,
-    liveLink: PropTypes.string
+    liveLink: PropTypes.string,
+    sourceLink: PropTypes.string
 }
 
 export default Project
