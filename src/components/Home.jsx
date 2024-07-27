@@ -151,7 +151,8 @@ const Home = () => {
           <img
             className='portfolio-image'
             src={PortfolioImage}
-            alt='My_image'
+            alt='Hero_Image'
+            loading='lazy'
           />
         </div>
       </div>

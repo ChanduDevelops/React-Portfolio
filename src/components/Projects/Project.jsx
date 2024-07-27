@@ -51,7 +51,7 @@ const Project = ({ index, id, title, info, tech, image, liveLink, sourceLink }) 
                         <span></span>
                     </h1>
                     <div className="img-c">
-                        <img src={image} alt="" loading='lazy' />
+                        <img src={image} alt="Project_Image" loading='lazy' />
                     </div>
                 </div>
             </div>

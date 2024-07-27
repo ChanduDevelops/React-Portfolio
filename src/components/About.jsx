@@ -11,7 +11,8 @@ export default function About() {
         <div className='img-c'>
           <img
             src={aboutImage}
-            alt='about_image'
+            alt='About_Image'
+            loading='lazy'
           />
         </div>
         <div className='content'>
