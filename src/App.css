@@ -873,9 +873,9 @@ section {
     font-size: 3.5rem;
     font-weight: bold;
     float: left;
-    line-height: 30px;
+    line-height: 20px;
     padding-right: .5rem;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .project .container .tech-div {
